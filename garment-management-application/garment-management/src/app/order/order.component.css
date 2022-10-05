@@ -1,0 +1,15 @@
+.jumbotron
+{
+    padding: 2rem 1rem !important;
+}
+h1
+{
+    color:darkslategray;
+    text-shadow: 2px 2px 2px white;
+    font-weight: bold;
+}
+.container
+{
+    border: solid 1px grey;
+    box-shadow: 3px 5px 5px grey;
+}

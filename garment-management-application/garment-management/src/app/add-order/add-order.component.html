@@ -1,0 +1,57 @@
+<app-navbar></app-navbar><br>
+<div>
+    <div class="container col-sm-6 m-auto">
+        <h3>Add order</h3><hr>
+        <form [formGroup]="addOrderGroup" (submit)="addOrder()">
+            <label>Product name:</label><br>
+              <div class="input-group">
+                <select formControlName="productName" required [class.is-invalid]="f['productName'].invalid && (f['productName'].dirty || f['productName'].touched)" class="form-control">
+                        <option *ngFor="let p of productData" value={{p.pid}}>{{p.pname}}</option>
+                </select>
+              </div>
+              <div *ngIf="f['productName'].invalid && f['productName'].touched">
+                <small class="text-danger" *ngIf="f['productName'].errors?.['required']">Please enter the name!</small>
+              </div><br>
+              <label>Vendor name:</label><br>
+              <div class="input-group">
+                <select formControlName="vendorName" required [class.is-invalid]="f['vendorName'].invalid && (f['vendorName'].dirty || f['vendorName'].touched)" class="form-control">
+                        <option *ngFor="let v of vendorData" value={{v.vid}}>{{v.vname}}</option>
+                </select>
+              </div>
+              <div *ngIf="f['vendorName'].invalid && f['vendorName'].touched">
+                <small class="text-danger" *ngIf="f['vendorName'].errors?.['required']">Please enter the vendorName!</small>
+              </div><br>
+              <label>Catalog name:</label><br>
+              <div class="input-group">
+                <select formControlName="catalogName" required [class.is-invalid]="f['catalogName'].invalid && (f['catalogName'].dirty || f['catalogName'].touched)" class="form-control">
+                        <option *ngFor="let c of catalogData" value={{c.cid}}>{{c.cname}}</option>
+                </select>
+              </div>
+              <div *ngIf="f['catalogName'].invalid && f['catalogName'].touched">
+                <small class="text-danger" *ngIf="f['catalogName'].errors?.['required']">Please enter the catalogName!</small>
+              </div><br>
+              <label>Date:</label><br>
+              <div class="input-group">
+                <input formControlName="date" required  [class.is-invalid]="f['date'].invalid && (f['date'].dirty || f['date'].touched)" class="form-control" placeholder="enter your name" type="date" class="form-control" id="name" aria-describedby="usernameHelp">
+              </div>
+              <div *ngIf="f['date'].invalid && f['date'].touched">
+                <small class="text-danger" *ngIf="f['date'].errors?.['required']">Please enter the date!</small>
+              </div><br>
+              <label>Quantity:</label><br>
+              <div class="input-group">
+                <input formControlName="quantity" required  [class.is-invalid]="f['quantity'].invalid && (f['quantity'].dirty || f['quantity'].touched)" class="form-control" placeholder="enter your name" type="number" class="form-control" id="name" aria-describedby="usernameHelp">
+              </div>
+              <div *ngIf="f['quantity'].invalid && f['quantity'].touched">
+                <small class="text-danger" *ngIf="f['quantity'].errors?.['required']">Please enter the quantity!</small>
+              </div><br>
+              <label>Damage:</label><br>
+              <div class="input-group">
+                <input formControlName="damage" required  [class.is-invalid]="f['damage'].invalid && (f['damage'].dirty || f['damage'].touched)" class="form-control" placeholder="enter your name" type="number" class="form-control" id="name" aria-describedby="usernameHelp">
+              </div>
+              <div *ngIf="f['damage'].invalid && f['damage'].touched">
+                <small class="text-danger" *ngIf="f['damage'].errors?.['required']">Please enter the damage!</small>
+              </div><br>
+              <input type="submit" class="btn btn-info" value="Submit">
+        </form>
+    </div>
+</div>

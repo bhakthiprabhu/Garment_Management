@@ -1,0 +1,54 @@
+<app-navbar></app-navbar><br>
+<div>
+    <div class="container col-sm-4 m-auto">
+        <h3>Add Distribute Work</h3><hr>
+        <form [formGroup]="addDistributeWork" (submit)="addDistribute()">
+              <label>Product Name:</label><br>
+              <div class="input-group">
+                <select formControlName="orderName" required [class.is-invalid]="f['orderName'].invalid && (f['orderName'].dirty || f['orderName'].touched)" class="form-control">
+                        <option *ngFor="let o of orderData" value={{o.oid}}>{{o.vname}} ({{o.pname}})</option>
+                </select>
+              </div>
+              <div *ngIf="f['orderName'].invalid && f['orderName'].touched">
+                <small class="text-danger" *ngIf="f['orderName'].errors?.['required']">Please enter the orderName!</small>
+              </div><br>
+              <label>Employee Name:</label><br>
+              <div class="input-group">
+                <select formControlName="employeeName" required [class.is-invalid]="f['employeeName'].invalid && (f['employeeName'].dirty || f['employeeName'].touched)" class="form-control">
+                       <option *ngFor="let o of orderData" value={{o.wid}}>{{o.ename}}</option> 
+                </select>
+              </div>
+              <div *ngIf="f['employeeName'].invalid && f['employeeName'].touched">
+                <small class="text-danger" *ngIf="f['employeeName'].errors?.['required']">Please enter the employeeName!</small>
+              </div><br>
+
+              <label>Status:</label><br>
+              <div class="input-group">
+                <select formControlName="status" required  [class.is-invalid]="f['status'].invalid && (f['status'].dirty || f['status'].touched)" class="form-control" placeholder="enter status" type="status" class="form-control" id="status" aria-describedby="usernameHelp">
+                  <option value="start">Started</option>
+                  <option value="process">In Process</option>
+                  <option value="complete">Completed</option>
+                  <option value="close">Closed</option>
+                </select>
+              </div>
+              <div *ngIf="f['status'].invalid && f['status'].touched">
+                <small class="text-danger" *ngIf="f['status'].errors?.['required']">Please enter status!</small>
+              </div><br>
+              <label>Quantity:</label><br>
+              <div class="input-group">
+                <input formControlName="quantity" id="quantity" required  [class.is-invalid]="f['quantity'].invalid && (f['quantity'].dirty || f['quantity'].touched)" class="form-control" placeholder="enter quantity"  type="number">
+              </div>
+              <div *ngIf="f['quantity'].invalid && f['quantity'].touched">
+                <small class="text-danger" *ngIf="f['quantity'].errors?.['required']">Please enter the quantity!</small>
+              </div><br>
+              <label>Damage:</label><br>
+              <div class="input-group">
+                <input formControlName="damage" id="damage" required  [class.is-invalid]="f['damage'].invalid && (f['damage'].dirty || f['damage'].touched)" class="form-control" type="number" placeholder="enter damage" >
+              </div>
+              <div *ngIf="f['damage'].invalid && f['damage'].touched">
+                <small class="text-danger" *ngIf="f['damage'].errors?.['required']">Please enter the damage!</small>
+              </div><br>
+                <input type="submit" class="btn btn-info" value="Submit">
+        </form>
+    </div>
+</div>

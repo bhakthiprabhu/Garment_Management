@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="jumbotron text-center bg-warning" >
+	<h1 class="text-center">Dashboard Page</h1> 
+</div>
+<div class="row">
+    <div class="card bg-success text-white col-sm-3"><br>
+        <h3 class="card-title" style="text-align: center;">Orders</h3><hr>
+        <div class="card-body" *ngFor="let p of productData">
+            Total <i>{{p.quantity}} {{p.pname}}</i> orders placed till now. 
+        </div>
+    </div>
+    <div class="card bg-success text-white col-sm-*"><br>
+        <h3 class="card-title" style="text-align: center;">Products</h3><hr>
+        <div class="card-body">
+            <span>Currently we've</span>
+            <ul>
+                <li *ngFor="let p of productNames">
+                    {{p.name}}
+                </li>
+            </ul>
+           <span> getting manufactured. </span>
+        </div>
+    </div>
+    <div class="card bg-success text-white col-sm-3"><br>
+        <h3 class="card-title" style="text-align: center;">Vendors</h3><hr>
+        <div class="card-body">
+            We've {{vendorCount}} number of vendors requested for order and
+            {{soldCount}} amount of orders are placed.
+        </div>
+    </div>
+    <div class="card bg-success text-white col-sm-2"><br>
+        <h3 class="card-title" style="text-align: center;">Employees</h3><hr>
+        <div class="card-body">
+            {{ecount}} employees are working to make the vendors order request completion. 
+        </div>
+    </div>
+</div>
